@@ -1,14 +1,18 @@
 import { Text, Flex } from '@chakra-ui/react'
 import Section from './Section'
+import { useTheme, getThemeColors } from '../context/ThemeContext'
 
 export function About() {
+  const { theme } = useTheme()
+  const colors = getThemeColors(theme)
+
   return <Section title='About me'>
     <Flex
       direction={{ base: 'column', lg: 'row' }}
       gap={12}
       align="start"
     >
-      <Text color="#cbd5e1" lineHeight="1.8" fontSize="base">
+      <Text color={colors.textSecondary} lineHeight="1.8" fontSize="base">
         I'm a Full Stack Developer focused on backend systems and internal tools.
         Most of my time goes into making business logic behave and preventing data workflows
         from turning into something nobody understands a week later.

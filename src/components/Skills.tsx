@@ -1,5 +1,6 @@
 import { HStack, Badge } from '@chakra-ui/react'
 import Section from './Section'
+import { useTheme, getThemeColors } from '../context/ThemeContext'
 
 const skills = [
   'TypeScript',
@@ -13,23 +14,27 @@ const skills = [
 ]
 
 export function Skills() {
+  const { theme } = useTheme()
+  const colors = getThemeColors(theme)
+
   return (
     <Section title="Stack">
       <HStack align="center" gap={3} wrap="wrap">
         {skills.map(skill => (
           <Badge
             key={skill}
-            bg="#1e293b"
-            color="#ffffff"
-            border="1px solid #334155"
+            bg={colors.bgCard}
+            color={colors.text}
+            border={`1px solid ${colors.border}`}
             px={3}
             py={2}
             borderRadius="full"
             fontSize="sm"
             _hover={{
-              borderColor: '#00d9ff',
-              color: '#00d9ff',
-              transform: 'translateY(-2px)'
+              borderColor: colors.accent,
+              color: colors.accent,
+              transform: 'translateY(-2px)',
+              bg: colors.bgCardHover
             }}
             transition="all 0.2s ease"
           >

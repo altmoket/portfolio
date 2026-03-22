@@ -1,5 +1,6 @@
 import { Box, Heading, VStack, Flex, Text, List } from '@chakra-ui/react'
 import Section from './Section'
+import { useTheme, getThemeColors } from '../context/ThemeContext'
 
 interface Experience {
   id: number
@@ -48,6 +49,9 @@ const experiences: Experience[] = [
 ]
 
 export function Experience() {
+  const { theme } = useTheme()
+  const colors = getThemeColors(theme)
+
   return (
     <Section title='Experience'>
       {/* Timeline */}
@@ -67,8 +71,8 @@ export function Experience() {
                 w="16px"
                 h="16px"
                 borderRadius="50%"
-                bg="#00d9ff"
-                border="3px solid #0f172a"
+                bg={colors.accent}
+                border={`3px solid ${colors.bg}`}
                 zIndex={2}
                 mt={2}
               />
@@ -77,7 +81,7 @@ export function Experience() {
                 <Box
                   w="2px"
                   flex={1}
-                  bg="#334155"
+                  bg={colors.border}
                   mt={4}
                   minH="120px"
                 />
@@ -98,12 +102,12 @@ export function Experience() {
                     as="h3"
                     size="md"
                     fontWeight={600}
-                    color="#f1f5f9"
+                    color={colors.text}
                   >
                     {exp.title}
                   </Heading>
                   <Text
-                    color="#00d9ff"
+                    color={colors.accent}
                     fontSize="sm"
                     fontWeight={500}
                   >
@@ -111,7 +115,7 @@ export function Experience() {
                   </Text>
                 </VStack>
                 <Text
-                  color="#cbd5e1"
+                  color={colors.textSecondary}
                   fontSize="sm"
                   flexShrink={0}
                 >
@@ -122,7 +126,7 @@ export function Experience() {
               {/* Description */}
               <List.Root
                 as="ul"
-                color="#cbd5e1"
+                color={colors.textSecondary}
                 fontSize="sm"
                 gap={2}
                 pl={6}

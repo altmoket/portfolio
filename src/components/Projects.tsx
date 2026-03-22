@@ -1,5 +1,6 @@
 import { Box, Heading, SimpleGrid, Text, Badge, Link, VStack, HStack } from '@chakra-ui/react'
 import Section from './Section'
+import { useTheme, getThemeColors } from '../context/ThemeContext'
 
 interface Project {
   id: number
@@ -78,42 +79,45 @@ const featured = {
 }
 
 export function Projects() {
+  const { theme } = useTheme()
+  const colors = getThemeColors(theme)
+
   return (
     <Section title="Projects">
       
       {/* FEATURED PROJECT */}
       <Box
-        bg="#0f172a"
-        border="1px solid #334155"
+        bg={colors.bgCard}
+        border={`1px solid ${colors.border}`}
         borderRadius="12px"
         p={8}
         mb={10}
         _hover={{
-          borderColor: '#0ea5e9',
-          bg: '#1e293b'
+          borderColor: colors.accent,
+          bg: colors.bgCardHover
         }}
         transition="all 0.3s ease"
       >
         <VStack align="start" gap={4}>
-          <Heading size="lg">{featured.title}</Heading>
+          <Heading size="lg" color={colors.text}>{featured.title}</Heading>
 
-          <Text color="#94a3b8" maxW="lg">
+          <Text color={colors.textTertiary} maxW="lg">
             {featured.description}
           </Text>
 
           <HStack>
             {featured.tags.map(tag => (
-              <Badge key={tag} bg="#1e293b" color="#0ea5e9" border="1px solid #334155">
+              <Badge key={tag} bg={colors.bgCardHover} color={colors.accent} border={`1px solid ${colors.border}`}>
                 {tag}
               </Badge>
             ))}
           </HStack>
 
           <HStack gap={6} pt={2}>
-            <Link href={featured.link} color="#0ea5e9" _hover={{ color: '#06b6d4' }}>
+            <Link href={featured.link} color={colors.accent} _hover={{ color: colors.accentLight }}>
               Live ↗
             </Link>
-            <Link href={featured.github} color="#0ea5e9" _hover={{ color: '#06b6d4' }}>
+            <Link href={featured.github} color={colors.accent} _hover={{ color: colors.accentLight }}>
               Code →
             </Link>
           </HStack>
@@ -125,37 +129,37 @@ export function Projects() {
         {projects.slice(1).map((project) => (
           <Box
             key={project.id}
-            bg="#0f172a"
-            border="1px solid #334155"
+            bg={colors.bgCard}
+            border={`1px solid ${colors.border}`}
             borderRadius="10px"
             p={5}
             _hover={{
-              borderColor: '#0ea5e9',
-              bg: '#1e293b',
+              borderColor: colors.accent,
+              bg: colors.bgCardHover,
               transform: 'translateY(-2px)'
             }}
             transition="all 0.3s ease"
           >
             <VStack align="start" gap={3}>
-              <Heading size="sm">{project.title}</Heading>
+              <Heading size="sm" color={colors.text}>{project.title}</Heading>
 
-              <Text fontSize="sm" color="#94a3b8">
+              <Text fontSize="sm" color={colors.textTertiary}>
                 {project.description}
               </Text>
 
               <HStack wrap="wrap">
                 {project.tags.map(tag => (
-                  <Badge key={tag} fontSize="xs" bg="#1e293b" color="#0ea5e9" border="1px solid #334155">
+                  <Badge key={tag} fontSize="xs" bg={colors.bgCardHover} color={colors.accent} border={`1px solid ${colors.border}`}>
                     {tag}
                   </Badge>
                 ))}
               </HStack>
 
               <HStack gap={4} pt={2}>
-                <Link href={project.link} fontSize="sm" color="#0ea5e9" _hover={{ color: '#06b6d4' }}>
+                <Link href={project.link} fontSize="sm" color={colors.accent} _hover={{ color: colors.accentLight }}>
                   Live
                 </Link>
-                <Link href={project.github} fontSize="sm" color="#0ea5e9" _hover={{ color: '#06b6d4' }}>
+                <Link href={project.github} fontSize="sm" color={colors.accent} _hover={{ color: colors.accentLight }}>
                   Code
                 </Link>
               </HStack>

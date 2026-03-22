@@ -13,8 +13,11 @@ import { FiMail } from "react-icons/fi";
 import { FaLinkedin } from "react-icons/fa";
 import { FaFileLines } from "react-icons/fa6";
 import { FiGithub } from "react-icons/fi";
+import { useTheme, getThemeColors } from '../context/ThemeContext'
 
 export function Hero() {
+  const { theme } = useTheme()
+  const colors = getThemeColors(theme)
   return (
     <VStack
       flex={1}
@@ -35,7 +38,7 @@ export function Hero() {
           minW={{ base: "120px", md: "140px" }}
           borderRadius="full"
           objectFit="cover"
-          border="2px solid #00d9ff"
+          border={`2px solid ${colors.cyan}`}
         />
 
         <VStack align={{ base: "center", md: "start" }} gap={3} w="full">
@@ -44,11 +47,11 @@ export function Hero() {
             Leandro Hernandez Nuñez
           </Heading>
 
-          <Text color="#cbd5e1" maxW="md" textAlign={{ base: "center", md: "left" }}>
+          <Text color={colors.textSecondary} maxW="md" textAlign={{ base: "center", md: "left" }}>
             Full Stack Developer
           </Text>
 
-          <HStack color="#94a3b8" align="center" gap={2} justify={{ base: "center", md: "flex-start" }}>
+          <HStack color={colors.textTertiary} align="center" gap={2} justify={{ base: "center", md: "flex-start" }}>
             <HiOutlineLocationMarker />
             <Text>
               São Paulo, Brazil
@@ -60,10 +63,10 @@ export function Hero() {
             <FiMail />
             leandro.nunez1457@gmail.com
           </Link>
-          <IconButton borderRadius={'full'} color={'#ffffff'} bg={'rgb(100, 100, 100, 1)'} _hover={{ bg: 'rgb(100, 100, 100, 0.8)' }} aria-label="Download CV">
+          <IconButton borderRadius={'full'} color={colors.text} bg={colors.bgCard} border={`1px solid ${colors.border}`} _hover={{ bg: colors.bgCardHover, borderColor: colors.accent }} aria-label="Download CV" transition="all 0.3s ease">
             <FaFileLines />
           </IconButton>
-          <IconButton borderRadius={'full'} color={'#ffffff'} bg={'rgb(0, 0, 0, 1)'} _hover={{ bg: 'rgb(0, 0, 0, 0.8)' }} aria-label="GitHub">
+          <IconButton borderRadius={'full'} color={colors.text} bg={colors.bgCard} border={`1px solid ${colors.border}`} _hover={{ bg: colors.bgCardHover, borderColor: colors.accent }} aria-label="GitHub" transition="all 0.3s ease">
             <FiGithub />
           </IconButton>
           <IconButton borderRadius={'full'} color={'#ffffff'} bg={'rgb(14, 118, 168, 1)'} _hover={{ bg: 'rgb(14, 118, 168, 0.8)' }} aria-label="LinkedIn">

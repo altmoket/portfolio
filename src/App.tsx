@@ -4,17 +4,27 @@ import { About } from './components/About'
 import { Projects } from './components/Projects'
 import { Skills } from './components/Skills'
 import { Experience } from './components/Experience'
+import { ThemeSwitcher } from './components/ThemeSwitcher'
+import { ThemeProvider, useTheme, getThemeColors } from './context/ThemeContext'
 
-function App() {
+function AppContent() {
+  const { theme } = useTheme()
+  const colors = getThemeColors(theme)
+
   return (
     <Box
       w="100%"
       overflowX="hidden"
-      bg="#171816"
-      color="#f1f5f9"
+      bg={colors.bg}
+      color={colors.text}
       fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif"
+      transition="all 0.3s ease"
+      minH="100vh"
     >
-      <Container maxW="1200px" py={{ base: 16, md: 24 }}>
+      <Container maxW="1200px" py={{ base: 16, md: 24 }} position="relative">
+        <Box position="fixed" top={6} right={6} zIndex={10}>
+          <ThemeSwitcher />
+        </Box>
         <VStack gap={10} align={'flex-start'}>
           <Hero />
           <About />
@@ -24,6 +34,14 @@ function App() {
         </VStack>
       </Container>
     </Box>
+  )
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   )
 }
 
