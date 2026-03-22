@@ -11,35 +11,37 @@ interface Experience {
 const experiences: Experience[] = [
   {
     id: 1,
-    title: 'Senior Full Stack Developer',
-    company: 'TechCorp Solutions',
+    title: 'Full Stack Developer',
+    company: 'Synchronit',
     period: '2022 - Present',
     description: [
-      'Led development of scalable microservices architecture serving 100k+ daily users',
-      'Implemented CI/CD pipelines reducing deployment time by 60%',
-      'Mentored team of 5 junior developers, improving code quality and team productivity'
+      'Work across backend and frontend using Node.js, TypeScript, React and PostgreSQL',
+      'Participated in legacy backend migration from Python to Common Lisp, simplifying business logic',
+      'Design and maintain FQL, an internal DSL on top of SQL to centralize query logic',
+      'Contributed to CI workflows using GitHub Actions and assisted with AWS deployments'
     ]
   },
   {
     id: 2,
-    title: 'Full Stack Developer',
-    company: 'Digital Innovations Inc',
-    period: '2020 - 2022',
+    title: 'Backend Developer',
+    company: 'CLASS Limitless',
+    period: '2021-11 - 2022-02',
     description: [
-      'Developed and maintained React-based web applications with 99.9% uptime',
-      'Designed RESTful APIs serving mobile and web clients',
-      'Optimized database queries improving application performance by 40%'
+      'Built REST APIs using Node.js and PostgreSQL',
+      'Assisted in database design and query optimization',
+      'Worked with Docker-based development environments',
+      'Implemented small internal tools to improve data access for the team'
     ]
   },
   {
     id: 3,
-    title: 'Junior Developer',
-    company: 'StartupXYZ',
-    period: '2019 - 2020',
+    title: 'Frontend Developer Intern',
+    company: 'Innovasoft Solutions',
+    period: '2021-05 - 2021-06',
     description: [
-      'Built responsive web applications using React and TypeScript',
-      'Collaborated with design team to implement pixel-perfect UI designs',
-      'Fixed critical bugs in production, ensuring system stability'
+      'Developed UI components using React and TypeScript',
+      'Integrated frontend features with backend APIs',
+      'Improved internal dashboards for data visualization'
     ]
   }
 ]

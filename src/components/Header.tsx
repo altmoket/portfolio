@@ -38,7 +38,7 @@ export function Header() {
             cursor="pointer"
             whiteSpace="nowrap"
           >
-            Leo Dev
+            Leandro
           </Box>
 
           {/* Desktop Navigation */}

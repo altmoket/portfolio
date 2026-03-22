@@ -32,10 +32,10 @@ export function Contact() {
   }
 
   const contactMethods = [
-    { icon: '📧', label: 'Email', link: 'mailto:leonardo@example.com', value: 'leonardo@example.com' },
-    { icon: '💼', label: 'LinkedIn', link: '#', value: 'linkedin.com/in/leonardo' },
-    { icon: '🐙', label: 'GitHub', link: '#', value: 'github.com/leonardo' },
-    { icon: '🐦', label: 'Twitter', link: '#', value: '@leonardo_dev' }
+    { icon: '📧', label: 'Email', link: 'mailto:leandro.nunez1457@email.com', value: 'leandro.nunez1457@email.com' },
+    { icon: '💼', label: 'LinkedIn', link: 'https://linkedin.com/in/lnunez1457', value: 'linkedin.com/in/lnunez1457' },
+    { icon: '🐙', label: 'GitHub', link: 'https://github.com/altmoket', value: 'github.com/altmoket' },
+    { icon: '📍', label: 'Location', link: '#', value: 'São Paulo, Brazil' }
   ]
 
   return (
@@ -91,8 +91,8 @@ export function Contact() {
               color="#cbd5e1"
               lineHeight="1.8"
             >
-              I'm always interested in hearing about new projects and opportunities.
-              Feel free to get in touch with me!
+              I'm always interested in discussing new projects, opportunities, and collaborations.
+              Whether you want to chat about backend systems, internal tooling, or just say hello - feel free to reach out!
             </Text>
 
             {/* Contact Methods */}

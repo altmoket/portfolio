@@ -49,25 +49,26 @@ export function About() {
               lineHeight="1.8"
               fontSize="base"
             >
-              I'm a passionate developer with a love for creating clean, efficient code and beautiful user interfaces.
-              With over 5 years of experience in web development, I've worked with startups and established companies
-              to deliver high-quality digital solutions.
+              I'm a Full Stack Developer based in São Paulo, Brazil, experienced in building backend systems and internal tools.
+              With a strong background in TypeScript, Node.js, React, and PostgreSQL, I focus on simplifying business logic
+              and improving data workflows through thoughtful engineering and tooling.
             </Text>
             <Text
               color="#cbd5e1"
               lineHeight="1.8"
               fontSize="base"
             >
-              I specialize in building scalable applications with modern technologies like React, TypeScript, and Node.js.
-              My approach combines technical excellence with a deep understanding of user experience and business goals.
+              At Synchronit, I work across backend and frontend, contributing to migration efforts, designing internal DSLs,
+              and building tools that improve daily operations. I'm passionate about creating systems that make business logic
+              clearer and query optimization more accessible to teams.
             </Text>
             <Text
               color="#cbd5e1"
               lineHeight="1.8"
               fontSize="base"
             >
-              When I'm not coding, you'll find me contributing to open-source projects, writing technical blogs,
-              or exploring new technologies to stay ahead in this fast-paced industry.
+              My expertise spans internal tooling, query systems, and developer workflows. I also have experience with CI/CD pipelines
+              using GitHub Actions and basic AWS deployments, helping teams move faster and more confidently.
             </Text>
 
             {/* Stats */}
@@ -78,9 +79,9 @@ export function About() {
               w="full"
             >
               {[
-                { number: '50+', label: 'Projects' },
-                { number: '5+', label: 'Years' },
-                { number: '30+', label: 'Clients' }
+                { number: '4+', label: 'Years Experience' },
+                { number: '3+', label: 'Companies' },
+                { number: '6', label: 'Tech Stack' }
               ].map((stat) => (
                 <Box key={stat.label} textAlign="center">
                   <Text
@@ -121,7 +122,7 @@ export function About() {
                 fontSize="lg"
                 fontWeight={600}
               >
-                Leonardo
+                Leandro
               </Text>
             </VStack>
           </Box>

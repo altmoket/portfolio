@@ -5,7 +5,7 @@ export function Footer() {
 
   const footerSections = [
     {
-      title: 'Leonardo Dev',
+      title: 'Leandro Dev',
       items: ['Building amazing digital experiences one project at a time.']
     },
     {
@@ -85,7 +85,7 @@ export function Footer() {
           color="#cbd5e1"
           fontSize="sm"
         >
-          &copy; {currentYear} Leonardo Dev. All rights reserved.
+          &copy; {currentYear} Leandro Dev. All rights reserved.
         </Text>
       </Container>
     </Box>

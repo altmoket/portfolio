@@ -32,7 +32,7 @@ export function Hero() {
                 backgroundClip="text"
                 color="transparent"
               >
-                Leonardo
+                Leandro
               </Box>
             </Heading>
             
@@ -42,7 +42,7 @@ export function Hero() {
               fontWeight={400}
               color="#cbd5e1"
             >
-              Full Stack Developer & Creative Problem Solver
+              Full Stack Developer
             </Heading>
 
             <Text
@@ -51,8 +51,7 @@ export function Hero() {
               maxW="sm"
               lineHeight="1.8"
             >
-              I build exceptional digital experiences using React, Node.js, and TypeScript.
-              With 5+ years of experience, I transform ideas into beautiful, functional applications.
+              Full Stack Developer experienced in building backend systems and internal tools using TypeScript, Node.js, React and PostgreSQL. Focused on simplifying business logic and improving data workflows.
             </Text>
 
             <Stack
@@ -103,23 +102,23 @@ export function Hero() {
               borderBottomColor="#334155"
               mb={4}
             >
-              <Text fontWeight={600}>~/leonardo</Text>
+              <Text fontWeight={600}>~/leandro</Text>
             </Box>
             <VStack
               gap={2}
               align="start"
             >
               <Box>
-                <Box as="span" color="#00d9ff">const</Box> developer{' '}
-                = <Box as="span" color="#10b981">"Full Stack"</Box>
+                <Box as="span" color="#00d9ff">const</Box> expertise{' '}
+                = <Box as="span" color="#10b981">"Backend & Tooling"</Box>
               </Box>
               <Box>
-                <Box as="span" color="#00d9ff">const</Box> passion{' '}
-                = <Box as="span" color="#10b981">"Clean Code"</Box>
+                <Box as="span" color="#00d9ff">const</Box> focus{' '}
+                = <Box as="span" color="#10b981">"Query Systems"</Box>
               </Box>
               <Box>
-                <Box as="span" color="#00d9ff">const</Box> goal{' '}
-                = <Box as="span" color="#10b981">"Make Impact"</Box>
+                <Box as="span" color="#00d9ff">const</Box> location{' '}
+                = <Box as="span" color="#10b981">"São Paulo, Brazil"</Box>
               </Box>
             </VStack>
           </Box>
