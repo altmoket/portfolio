@@ -1,4 +1,4 @@
-import { Box, Heading, SimpleGrid, Text, Badge, Link, VStack, Card, HStack } from '@chakra-ui/react'
+import { Box, Heading, SimpleGrid, Text, Badge, Link, VStack, HStack } from '@chakra-ui/react'
 import Section from './Section'
 
 interface Project {
@@ -68,106 +68,99 @@ const projects: Project[] = [
   }
 ]
 
+const featured = {
+  title: 'Price Comparator',
+  description:
+    'Tool to compare supermarket prices and optimize shopping decisions based on real data.',
+  tags: ['React', 'Node.js', 'PostgreSQL'],
+  link: '#',
+  github: '#'
+}
+
 export function Projects() {
   return (
-    <Section title='Featured Projects'>
-      {/* Projects Grid */}
-      <SimpleGrid
-        columns={{ base: 1, md: 2, lg: 3 }}
-        gap={6}
+    <Section title="Projects">
+      
+      {/* FEATURED PROJECT */}
+      <Box
+        bg="#0f172a"
+        border="1px solid #334155"
+        borderRadius="12px"
+        p={8}
+        mb={10}
+        _hover={{
+          borderColor: '#0ea5e9',
+          bg: '#1e293b'
+        }}
+        transition="all 0.3s ease"
       >
-        {projects.map((project) => (
-          <Card.Root
+        <VStack align="start" gap={4}>
+          <Heading size="lg">{featured.title}</Heading>
+
+          <Text color="#94a3b8" maxW="lg">
+            {featured.description}
+          </Text>
+
+          <HStack>
+            {featured.tags.map(tag => (
+              <Badge key={tag} bg="#1e293b" color="#0ea5e9" border="1px solid #334155">
+                {tag}
+              </Badge>
+            ))}
+          </HStack>
+
+          <HStack gap={6} pt={2}>
+            <Link href={featured.link} color="#0ea5e9" _hover={{ color: '#06b6d4' }}>
+              Live ↗
+            </Link>
+            <Link href={featured.github} color="#0ea5e9" _hover={{ color: '#06b6d4' }}>
+              Code →
+            </Link>
+          </HStack>
+        </VStack>
+      </Box>
+
+      {/* OTHER PROJECTS */}
+      <SimpleGrid columns={{ base: 1, md: 2 }} gap={6}>
+        {projects.slice(1).map((project) => (
+          <Box
             key={project.id}
-            bg="#1e293b"
-            borderColor="#334155"
-            borderWidth={1}
+            bg="#0f172a"
+            border="1px solid #334155"
+            borderRadius="10px"
+            p={5}
             _hover={{
-              borderColor: '#00d9ff',
-              transform: 'translateY(-4px)',
-              transition: 'all 0.3s ease'
+              borderColor: '#0ea5e9',
+              bg: '#1e293b',
+              transform: 'translateY(-2px)'
             }}
             transition="all 0.3s ease"
           >
-            <Card.Body p={6}>
-              <VStack gap={4} align="start" h="full">
-                {/* Image */}
-                <Box
-                  w="60px"
-                  h="60px"
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                  fontSize="32px"
-                >
-                  {project.image}
-                </Box>
+            <VStack align="start" gap={3}>
+              <Heading size="sm">{project.title}</Heading>
 
-                {/* Title */}
-                <Heading
-                  as="h3"
-                  size="md"
-                  fontWeight={600}
-                  color="#f1f5f9"
-                >
-                  {project.title}
-                </Heading>
+              <Text fontSize="sm" color="#94a3b8">
+                {project.description}
+              </Text>
 
-                {/* Description */}
-                <Text
-                  color="#cbd5e1"
-                  fontSize="sm"
-                  lineHeight="1.6"
-                  flex={1}
-                >
-                  {project.description}
-                </Text>
+              <HStack wrap="wrap">
+                {project.tags.map(tag => (
+                  <Badge key={tag} fontSize="xs" bg="#1e293b" color="#0ea5e9" border="1px solid #334155">
+                    {tag}
+                  </Badge>
+                ))}
+              </HStack>
 
-                {/* Tags */}
-                <HStack gap={2} wrap="wrap">
-                  {project.tags.map((tag) => (
-                    <Badge
-                      key={tag}
-                      bg="rgba(0, 217, 255, 0.1)"
-                      color="#00d9ff"
-                      fontSize="xs"
-                      px={2}
-                      py={1}
-                      borderRadius="4px"
-                    >
-                      {tag}
-                    </Badge>
-                  ))}
-                </HStack>
-
-                {/* Links */}
-                <VStack gap={4} pt={4}>
-                  <Link
-                    href={project.link}
-                    color="#00d9ff"
-                    _hover={{ color: '#64e9ff' }}
-                    display="flex"
-                    alignItems="center"
-                    gap={1}
-                    fontSize="sm"
-                  >
-                    Live Demo ↗
-                  </Link>
-                  <Link
-                    href={project.github}
-                    color="#00d9ff"
-                    _hover={{ color: '#64e9ff' }}
-                    display="flex"
-                    alignItems="center"
-                    gap={1}
-                    fontSize="sm"
-                  >
-                    GitHub ⭐
-                  </Link>
-                </VStack>
-              </VStack>
-            </Card.Body>
-          </Card.Root>
+              <HStack gap={4} pt={2}>
+                <Link href={project.link} fontSize="sm" color="#0ea5e9" _hover={{ color: '#06b6d4' }}>
+                  Live
+                </Link>
+                <Link href={project.github} fontSize="sm" color="#0ea5e9" _hover={{ color: '#06b6d4' }}>
+                  Code
+                </Link>
+              </HStack>
+            </VStack>
+          </Box>
         ))}
       </SimpleGrid>
     </Section>
