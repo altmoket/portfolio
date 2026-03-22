@@ -1,7 +1,7 @@
 import { Box, Heading, VStack } from "@chakra-ui/react";
 
 const Section = ({ title, children }: { title?: string; children: React.ReactNode }) => {
-  return <Box >
+  return <Box w={'100%'}>
     <VStack
       gap={4}
       mb={8}
