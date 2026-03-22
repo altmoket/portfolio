@@ -16,38 +16,46 @@ import { FiGithub } from "react-icons/fi";
 
 export function Hero() {
   return (
-    <HStack
+    <VStack
       flex={1}
-      align="start"
-      gap={8}
+      align={{ base: "center", md: "start" }}
+      gap={{ base: 6, md: 8 }}
+      w="full"
     >
-      <Image
-        src="./me.jpeg"
-        alt="Leandro Hernandez"
-        boxSize="140px"
-        borderRadius="full"
-        objectFit="cover"
-        border="2px solid #00d9ff"
-      />
+      <HStack
+        align={{ base: "center", md: "start" }}
+        gap={{ base: 4, md: 8 }}
+        w="full"
+        flexDirection={{ base: "column", md: "row" }}
+      >
+        <Image
+          src="./me.jpeg"
+          alt="Leandro Hernandez"
+          boxSize={{ base: "120px", md: "140px" }}
+          minW={{ base: "120px", md: "140px" }}
+          borderRadius="full"
+          objectFit="cover"
+          border="2px solid #00d9ff"
+        />
 
-      <VStack align="start" gap={3}>
+        <VStack align={{ base: "center", md: "start" }} gap={3} w="full">
 
-        <Heading size="xl" fontWeight={900}>
-          Leandro Hernandez Nuñez
-        </Heading>
+          <Heading size={{ base: "lg", md: "xl" }} fontWeight={900} textAlign={{ base: "center", md: "left" }}>
+            Leandro Hernandez Nuñez
+          </Heading>
 
-        <Text color="#cbd5e1" maxW="md">
-          Full Stack Developer
-        </Text>
-
-        <HStack color="#94a3b8" align="center" gap={2}>
-          <HiOutlineLocationMarker />
-          <Text>
-            São Paulo, Brazil
+          <Text color="#cbd5e1" maxW="md" textAlign={{ base: "center", md: "left" }}>
+            Full Stack Developer
           </Text>
-        </HStack>
 
-        <HStack gap={4} pt={2} wrap="wrap">
+          <HStack color="#94a3b8" align="center" gap={2} justify={{ base: "center", md: "flex-start" }}>
+            <HiOutlineLocationMarker />
+            <Text>
+              São Paulo, Brazil
+            </Text>
+          </HStack>
+
+          <HStack gap={{ base: 2, md: 4 }} pt={2} wrap="wrap" justify={{ base: "center", md: "flex-start" }} w="full">
           <Link as={Button} href="mailto:leandro.nunez1457@email.com" color="#ffffff" bg={'rgb(70, 167, 89, 1)'} _hover={{ bg: 'rgb(70, 167, 89, 0.8)' }} borderRadius={'full'} p={2}>
             <FiMail />
             leandro.nunez1457@gmail.com
@@ -62,7 +70,8 @@ export function Hero() {
             <FaLinkedin />
           </IconButton>
         </HStack>
-      </VStack>
-    </HStack>
+        </VStack>
+      </HStack>
+    </VStack>
   )
 }
