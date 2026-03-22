@@ -1,4 +1,5 @@
 import { Box, Heading, SimpleGrid, Text, Badge, Link, VStack, Card } from '@chakra-ui/react'
+import Section from './Section'
 
 interface Project {
   id: number
@@ -69,28 +70,7 @@ const projects: Project[] = [
 
 export function Projects() {
   return (
-    <>
-      {/* Section Header */}
-      <VStack
-        gap={4}
-        mb={16}
-        align={{ base: 'center', md: 'start' }}
-      >
-        <Heading
-          as="h2"
-          size="2xl"
-          fontWeight={700}
-        >
-          Featured Projects
-        </Heading>
-        <Box
-          h="4px"
-          w="60px"
-          bg="linear-gradient(135deg, #00d9ff 0%, #64e9ff 100%)"
-          borderRadius="2px"
-        />
-      </VStack>
-
+    <Section title='Featured Projects'>
       {/* Projects Grid */}
       <SimpleGrid
         columns={{ base: 1, md: 2, lg: 3 }}
@@ -190,6 +170,6 @@ export function Projects() {
           </Card.Root>
         ))}
       </SimpleGrid>
-    </>
+    </Section>
   )
 }

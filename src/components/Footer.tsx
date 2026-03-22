@@ -1,4 +1,5 @@
 import { SimpleGrid, VStack, Text, Link } from '@chakra-ui/react'
+import Section from './Section'
 
 export function Footer() {
   const footerSections = [
@@ -25,8 +26,7 @@ export function Footer() {
   ]
 
   return (
-    <>
-
+    <Section>
       {/* Footer Sections */}
       <SimpleGrid
         columns={{ base: 1, md: 3 }}
@@ -65,6 +65,6 @@ export function Footer() {
           </VStack>
         ))}
       </SimpleGrid>
-    </>
+    </Section>
   )
 }

@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import {
   Box,
-  Container,
   Heading,
   VStack,
   Input,
@@ -11,6 +10,7 @@ import {
   Flex,
   Link
 } from '@chakra-ui/react'
+import Section from './Section'
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -39,29 +39,7 @@ export function Contact() {
   ]
 
   return (
-    <>
-
-      {/* Section Header */}
-      <VStack
-        gap={4}
-        mb={16}
-        align={{ base: 'center', md: 'start' }}
-      >
-        <Heading
-          as="h2"
-          size="2xl"
-          fontWeight={700}
-        >
-          Get In Touch
-        </Heading>
-        <Box
-          h="4px"
-          w="60px"
-          bg="linear-gradient(135deg, #00d9ff 0%, #64e9ff 100%)"
-          borderRadius="2px"
-        />
-      </VStack>
-
+    <Section title='Get In Touch'>
       {/* Contact Content */}
       <Flex
         direction={{ base: 'column', lg: 'row' }}
@@ -243,6 +221,6 @@ export function Contact() {
           </VStack>
         </Box>
       </Flex>
-    </>
+    </Section>
   )
 }

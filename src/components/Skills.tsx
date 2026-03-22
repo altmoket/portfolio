@@ -1,4 +1,5 @@
 import { Box, Heading, SimpleGrid, Card, Text, VStack, HStack } from '@chakra-ui/react'
+import Section from './Section'
 
 interface SkillCategory {
   name: string
@@ -26,28 +27,7 @@ const skillCategories: SkillCategory[] = [
 
 export function Skills() {
   return (
-    <>
-
-      <VStack
-        gap={4}
-        mb={16}
-        align={{ base: 'center', md: 'start' }}
-      >
-        <Heading
-          as="h2"
-          size="2xl"
-          fontWeight={700}
-        >
-          Skills & Expertise
-        </Heading>
-        <Box
-          h="4px"
-          w="60px"
-          bg="linear-gradient(135deg, #00d9ff 0%, #64e9ff 100%)"
-          borderRadius="2px"
-        />
-      </VStack>
-
+    <Section title="Skills & Expertise">
       {/* Skills Grid */}
       <SimpleGrid
         columns={{ base: 1, md: 2, lg: 4 }}
@@ -104,6 +84,6 @@ export function Skills() {
           </Card.Root>
         ))}
       </SimpleGrid>
-    </>
+    </Section>
   )
 }
