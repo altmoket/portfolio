@@ -1,4 +1,4 @@
-import './Projects.css'
+import { Box, Container, Heading, SimpleGrid, Text, Badge, Link, VStack, Card } from '@chakra-ui/react'
 
 interface Project {
   id: number
@@ -69,35 +69,136 @@ const projects: Project[] = [
 
 export function Projects() {
   return (
-    <section id="projects" className="projects">
-      <div className="container">
-        <div className="section-header">
-          <h2>Featured Projects</h2>
-          <div className="header-underline"></div>
-        </div>
-        <div className="projects-grid">
+    <Box
+      as="section"
+      id="projects"
+      bg="#0f172a"
+      py={{ base: 16, md: 24 }}
+      borderTopWidth={1}
+      borderTopColor="#334155"
+    >
+      <Container maxW="1200px">
+        {/* Section Header */}
+        <VStack
+          gap={4}
+          mb={16}
+          align={{ base: 'center', md: 'start' }}
+        >
+          <Heading
+            as="h2"
+            size="2xl"
+            fontWeight={700}
+          >
+            Featured Projects
+          </Heading>
+          <Box
+            h="4px"
+            w="60px"
+            bg="linear-gradient(135deg, #00d9ff 0%, #64e9ff 100%)"
+            borderRadius="2px"
+          />
+        </VStack>
+
+        {/* Projects Grid */}
+        <SimpleGrid
+          columns={{ base: 1, md: 2, lg: 3 }}
+          gap={6}
+        >
           {projects.map((project) => (
-            <div key={project.id} className="project-card">
-              <div className="project-image">{project.image}</div>
-              <div className="project-body">
-                <h3 className="project-title">{project.title}</h3>
-                <p className="project-description">{project.description}</p>
-                <div className="project-tags">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="tag">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div className="project-footer">
-                <a href={project.link} className="project-link">Live Demo</a>
-                <a href={project.github} className="project-link">GitHub</a>
-              </div>
-            </div>
+            <Card.Root
+              key={project.id}
+              bg="#1e293b"
+              borderColor="#334155"
+              borderWidth={1}
+              _hover={{
+                borderColor: '#00d9ff',
+                transform: 'translateY(-4px)',
+                transition: 'all 0.3s ease'
+              }}
+              transition="all 0.3s ease"
+            >
+              <Card.Body p={6}>
+                <VStack gap={4} align="start" h="full">
+                  {/* Image */}
+                  <Box
+                    w="60px"
+                    h="60px"
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    fontSize="32px"
+                  >
+                    {project.image}
+                  </Box>
+
+                  {/* Title */}
+                  <Heading
+                    as="h3"
+                    size="md"
+                    fontWeight={600}
+                    color="#f1f5f9"
+                  >
+                    {project.title}
+                  </Heading>
+
+                  {/* Description */}
+                  <Text
+                    color="#cbd5e1"
+                    fontSize="sm"
+                    lineHeight="1.6"
+                    flex={1}
+                  >
+                    {project.description}
+                  </Text>
+
+                  {/* Tags */}
+                  <VStack gap={2} align="start">
+                    {project.tags.map((tag) => (
+                      <Badge
+                        key={tag}
+                        bg="rgba(0, 217, 255, 0.1)"
+                        color="#00d9ff"
+                        fontSize="xs"
+                        px={2}
+                        py={1}
+                        borderRadius="4px"
+                      >
+                        {tag}
+                      </Badge>
+                    ))}
+                  </VStack>
+
+                  {/* Links */}
+                  <VStack gap={4} pt={4}>
+                    <Link
+                      href={project.link}
+                      color="#00d9ff"
+                      _hover={{ color: '#64e9ff' }}
+                      display="flex"
+                      alignItems="center"
+                      gap={1}
+                      fontSize="sm"
+                    >
+                      Live Demo ↗
+                    </Link>
+                    <Link
+                      href={project.github}
+                      color="#00d9ff"
+                      _hover={{ color: '#64e9ff' }}
+                      display="flex"
+                      alignItems="center"
+                      gap={1}
+                      fontSize="sm"
+                    >
+                      GitHub ⭐
+                    </Link>
+                  </VStack>
+                </VStack>
+              </Card.Body>
+            </Card.Root>
           ))}
-        </div>
-      </div>
-    </section>
+        </SimpleGrid>
+      </Container>
+    </Box>
   )
 }

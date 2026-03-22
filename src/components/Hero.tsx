@@ -1,43 +1,130 @@
-import './Hero.css'
+import { Box, Container, Flex, Heading, Text, Button, Stack, VStack } from '@chakra-ui/react'
 
 export function Hero() {
   return (
-    <section className="hero">
-      <div className="container hero-content">
-        <div className="hero-text">
-          <h1 className="hero-title">
-            Hi, I'm <span className="gradient-text">Leonardo</span>
-          </h1>
-          <p className="hero-subtitle">
-            Full Stack Developer & Creative Problem Solver
-          </p>
-          <p className="hero-description">
-            I build exceptional digital experiences using React, Node.js, and TypeScript.
-            With 5+ years of experience, I transform ideas into beautiful, functional applications.
-          </p>
-          <div className="hero-buttons">
-            <button className="cta-button">View My Work</button>
-            <button className="secondary-button">Download CV</button>
-          </div>
-        </div>
-        <div className="hero-visual">
-          <div className="code-box">
-            <div className="code-header">~/leonardo</div>
-            <div className="code-line">
-              <span className="code-keyword">const</span> <span className="code-var">developer</span> = 
-              <span className="code-string">"Full Stack"</span>;
-            </div>
-            <div className="code-line">
-              <span className="code-keyword">const</span> <span className="code-var">passion</span> = 
-              <span className="code-string">"Clean Code"</span>;
-            </div>
-            <div className="code-line">
-              <span className="code-keyword">const</span> <span className="code-var">goal</span> = 
-              <span className="code-string">"Make Impact"</span>;
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <Box
+      as="section"
+      bg="#0f172a"
+      py={{ base: 16, md: 24 }}
+    >
+      <Container maxW="1200px">
+        <Flex
+          direction={{ base: 'column', lg: 'row' }}
+          gap={12}
+          align="center"
+        >
+          {/* Text Content */}
+          <VStack
+            flex={1}
+            gap={6}
+            align="start"
+          >
+            <Heading
+              as="h1"
+              size="2xl"
+              fontWeight={900}
+              lineHeight="1.2"
+            >
+              Hi, I'm{' '}
+              <Box
+                as="span"
+                background="linear-gradient(135deg, #00d9ff 0%, #64e9ff 100%)"
+                backgroundClip="text"
+                color="transparent"
+              >
+                Leonardo
+              </Box>
+            </Heading>
+            
+            <Heading
+              as="p"
+              size="lg"
+              fontWeight={400}
+              color="#cbd5e1"
+            >
+              Full Stack Developer & Creative Problem Solver
+            </Heading>
+
+            <Text
+              fontSize="base"
+              color="#cbd5e1"
+              maxW="sm"
+              lineHeight="1.8"
+            >
+              I build exceptional digital experiences using React, Node.js, and TypeScript.
+              With 5+ years of experience, I transform ideas into beautiful, functional applications.
+            </Text>
+
+            <Stack
+              direction={{ base: 'column', sm: 'row' }}
+              gap={4}
+              pt={4}
+            >
+              <Button
+                bg="#00d9ff"
+                color="#0f172a"
+                fontWeight={600}
+                px={6}
+                py={6}
+                _hover={{ bg: '#64e9ff', transform: 'translateY(-2px)' }}
+                transition="all 0.3s ease"
+              >
+                View My Work
+              </Button>
+              <Button
+                bg="transparent"
+                color="#00d9ff"
+                border="2px solid #00d9ff"
+                fontWeight={600}
+                px={6}
+                py={6}
+                _hover={{ bg: 'rgba(0, 217, 255, 0.1)', transform: 'translateY(-2px)' }}
+                transition="all 0.3s ease"
+              >
+                Download CV
+              </Button>
+            </Stack>
+          </VStack>
+
+          {/* Code Box */}
+          <Box
+            flex={1}
+            bg="#1e293b"
+            border="1px solid #334155"
+            borderRadius="8px"
+            p={6}
+            fontFamily="'Monaco', 'Courier New', monospace"
+            fontSize="sm"
+            color="#64e9ff"
+          >
+            <Box
+              pb={4}
+              borderBottomWidth={1}
+              borderBottomColor="#334155"
+              mb={4}
+            >
+              <Text fontWeight={600}>~/leonardo</Text>
+            </Box>
+            <VStack
+              gap={2}
+              align="start"
+            >
+              <Box>
+                <Box as="span" color="#00d9ff">const</Box> developer{' '}
+                = <Box as="span" color="#10b981">"Full Stack"</Box>
+              </Box>
+              <Box>
+                <Box as="span" color="#00d9ff">const</Box> passion{' '}
+                = <Box as="span" color="#10b981">"Clean Code"</Box>
+              </Box>
+              <Box>
+                <Box as="span" color="#00d9ff">const</Box> goal{' '}
+                = <Box as="span" color="#10b981">"Make Impact"</Box>
+              </Box>
+            </VStack>
+          </Box>
+        </Flex>
+      </Container>
+    </Box>
   )
 }
