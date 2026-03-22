@@ -39,28 +39,28 @@ export function Contact() {
                 <span className="icon">📧</span>
                 <div>
                   <p className="method-label">Email</p>
-                  <a href="mailto:leandro.nunez1457@email.com">leandro.nunez1457@email.com</a>
+                  <a href="mailto:leonardo@example.com">leonardo@example.com</a>
                 </div>
               </div>
               <div className="contact-method">
                 <span className="icon">💼</span>
                 <div>
                   <p className="method-label">LinkedIn</p>
-                  <a href="https://linkedin.com/in/lnunez1457" target="_blank" rel="noopener noreferrer">linkedin.com/in/lnunez1457</a>
+                  <a href="#" target="_blank" rel="noopener noreferrer">linkedin.com/in/leonardo</a>
                 </div>
               </div>
               <div className="contact-method">
                 <span className="icon">🐙</span>
                 <div>
                   <p className="method-label">GitHub</p>
-                  <a href="https://github.com/altmoket" target="_blank" rel="noopener noreferrer">github.com/altmoket</a>
+                  <a href="#" target="_blank" rel="noopener noreferrer">github.com/leonardo</a>
                 </div>
               </div>
               <div className="contact-method">
-                <span className="icon">📍</span>
+                <span className="icon">🐦</span>
                 <div>
-                  <p className="method-label">Location</p>
-                  <p>São Paulo, Brazil</p>
+                  <p className="method-label">Twitter</p>
+                  <a href="#" target="_blank" rel="noopener noreferrer">@leonardo_dev</a>
                 </div>
               </div>
             </div>

@@ -7,20 +7,20 @@ interface SkillCategory {
 
 const skillCategories: SkillCategory[] = [
   {
-    name: 'Programming',
-    skills: ['TypeScript', 'JavaScript', 'Node.js', 'React', 'PostgreSQL', 'Common Lisp']
+    name: 'Frontend',
+    skills: ['React', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Next.js', 'HTML/CSS']
   },
   {
-    name: 'Tooling & Infrastructure',
-    skills: ['GitHub Actions', 'Docker', 'AWS (basic)', 'CI/CD', 'REST APIs']
+    name: 'Backend',
+    skills: ['Node.js', 'Express', 'Python', 'GraphQL', 'REST APIs', 'Microservices']
   },
   {
-    name: 'Focus Areas',
-    skills: ['Backend Development', 'Internal Tooling', 'Query Systems', 'Developer Workflows', 'Data Abstraction']
+    name: 'Databases',
+    skills: ['PostgreSQL', 'MongoDB', 'Redis', 'Firebase', 'SQL', 'Prisma ORM']
   },
   {
-    name: 'Languages',
-    skills: ['Spanish (Native)', 'English (Professional)', 'Portuguese (Basic)']
+    name: 'DevOps & Tools',
+    skills: ['Docker', 'Git', 'AWS', 'Vercel', 'GitHub Actions', 'Jenkins']
   }
 ]
 

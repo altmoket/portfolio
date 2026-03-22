@@ -11,29 +11,30 @@ export function About() {
         <div className="about-content">
           <div className="about-text">
             <p>
-              I'm a Full Stack Developer from São Paulo, Brazil, with a passion for building clean, efficient backend systems.
-              I specialize in crafting internal tools and data query systems that simplify business logic and improve team workflows.
+              I'm a passionate developer with a love for creating clean, efficient code and beautiful user interfaces. 
+              With over 5 years of experience in web development, I've worked with startups and established companies 
+              to deliver high-quality digital solutions.
             </p>
             <p>
-              My experience spans building REST APIs with Node.js, designing PostgreSQL databases, developing React frontends, and working with modern infrastructure like Docker and AWS.
-              I've worked across early-stage environments, helping teams scale their data handling and developer productivity.
+              I specialize in building scalable applications with modern technologies like React, TypeScript, and Node.js. 
+              My approach combines technical excellence with a deep understanding of user experience and business goals.
             </p>
             <p>
-              I'm particularly interested in query abstraction, domain-specific languages, and building tools that make developer workflows seamless.
-              Currently at Synchronit, focused on backend development and internal tooling.
+              When I'm not coding, you'll find me contributing to open-source projects, writing technical blogs, 
+              or exploring new technologies to stay ahead in this fast-paced industry.
             </p>
             <div className="about-stats">
               <div className="stat">
-                <div className="stat-number">4+</div>
-                <div className="stat-label">Years Dev</div>
+                <div className="stat-number">50+</div>
+                <div className="stat-label">Projects</div>
               </div>
               <div className="stat">
-                <div className="stat-number">3</div>
-                <div className="stat-label">Companies</div>
+                <div className="stat-number">5+</div>
+                <div className="stat-label">Years</div>
               </div>
               <div className="stat">
-                <div className="stat-number">🇧🇷</div>
-                <div className="stat-label">São Paulo</div>
+                <div className="stat-number">30+</div>
+                <div className="stat-label">Clients</div>
               </div>
             </div>
           </div>

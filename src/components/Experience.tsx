@@ -11,39 +11,35 @@ interface Experience {
 const experiences: Experience[] = [
   {
     id: 1,
-    title: 'Full Stack Developer',
-    company: 'Synchronit',
+    title: 'Senior Full Stack Developer',
+    company: 'TechCorp Solutions',
     period: '2022 - Present',
     description: [
-      'Work across backend and frontend using Node.js, TypeScript, React and PostgreSQL',
-      'Participated in migration of legacy backend from Python to Common Lisp, simplifying business logic and data handling',
-      'Design and maintain FQL, an internal DSL on top of SQL used to centralize query logic',
-      'Contributed to internal assistant translating natural language into FQL queries',
-      'Built internal tools including dashboards, documentation tools, and browser-based CLI',
-      'Contribute to CI workflows using GitHub Actions and assist with AWS deployments'
+      'Led development of scalable microservices architecture serving 100k+ daily users',
+      'Implemented CI/CD pipelines reducing deployment time by 60%',
+      'Mentored team of 5 junior developers, improving code quality and team productivity'
     ]
   },
   {
     id: 2,
-    title: 'Backend Developer',
-    company: 'CLASS Limitless',
-    period: '2021 - 2022',
+    title: 'Full Stack Developer',
+    company: 'Digital Innovations Inc',
+    period: '2020 - 2022',
     description: [
-      'Built REST APIs using Node.js and PostgreSQL',
-      'Assisted in database design and query optimization',
-      'Worked with Docker-based development environments',
-      'Implemented internal tools to improve data access for the team'
+      'Developed and maintained React-based web applications with 99.9% uptime',
+      'Designed RESTful APIs serving mobile and web clients',
+      'Optimized database queries improving application performance by 40%'
     ]
   },
   {
     id: 3,
-    title: 'Frontend Developer Intern',
-    company: 'Innovasoft Solutions',
-    period: '2021',
+    title: 'Junior Developer',
+    company: 'StartupXYZ',
+    period: '2019 - 2020',
     description: [
-      'Developed UI components using React and TypeScript',
-      'Integrated frontend features with backend APIs',
-      'Improved internal dashboards for data visualization'
+      'Built responsive web applications using React and TypeScript',
+      'Collaborated with design team to implement pixel-perfect UI designs',
+      'Fixed critical bugs in production, ensuring system stability'
     ]
   }
 ]

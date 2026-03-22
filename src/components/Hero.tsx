@@ -6,14 +6,14 @@ export function Hero() {
       <div className="container hero-content">
         <div className="hero-text">
           <h1 className="hero-title">
-            Hi, I'm <span className="gradient-text">Leandro</span>
+            Hi, I'm <span className="gradient-text">Leonardo</span>
           </h1>
           <p className="hero-subtitle">
-            Full Stack Developer | Backend Systems & Internal Tools
+            Full Stack Developer & Creative Problem Solver
           </p>
           <p className="hero-description">
-            I specialize in building scalable backend systems and internal tools using TypeScript, Node.js, React and PostgreSQL.
-            Focused on simplifying business logic and improving data workflows through query abstraction and developer-friendly APIs.
+            I build exceptional digital experiences using React, Node.js, and TypeScript.
+            With 5+ years of experience, I transform ideas into beautiful, functional applications.
           </p>
           <div className="hero-buttons">
             <button className="cta-button">View My Work</button>

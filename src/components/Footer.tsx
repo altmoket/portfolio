@@ -7,8 +7,8 @@ export function Footer() {
     <footer className="footer">
       <div className="container footer-content">
         <div className="footer-section">
-          <h4>Leandro Hernandez</h4>
-          <p>Full Stack Developer | Backend Systems & Internal Tools | São Paulo, Brazil</p>
+          <h4>Leonardo Dev</h4>
+          <p>Building amazing digital experiences one project at a time.</p>
         </div>
         <div className="footer-section">
           <h4>Quick Links</h4>
