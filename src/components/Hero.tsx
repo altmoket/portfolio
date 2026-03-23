@@ -18,6 +18,11 @@ import { useTheme, getThemeColors } from '../context/ThemeContext'
 export function Hero() {
   const { theme } = useTheme()
   const colors = getThemeColors(theme)
+
+  const handleDownloadCV = () => {
+    window.location.href = './Leandro_Hernandez_CV.pdf'
+  }
+  
   return (
     <VStack
       flex={1}
@@ -63,15 +68,15 @@ export function Hero() {
             <FiMail />
             leandro.nunez1457@gmail.com
           </Link>
-          <IconButton borderRadius={'full'} color={colors.text} bg={colors.bgCard} border={`1px solid ${colors.border}`} _hover={{ bg: colors.bgCardHover, borderColor: colors.accent }} aria-label="Download CV" transition="all 0.3s ease">
+          <IconButton onClick={handleDownloadCV} borderRadius={'full'} color={colors.text} bg={colors.bgCard} border={`1px solid ${colors.border}`} _hover={{ bg: colors.bgCardHover, borderColor: colors.accent }} aria-label="Download CV" transition="all 0.3s ease">
             <FaFileLines />
           </IconButton>
-          <IconButton borderRadius={'full'} color={colors.text} bg={colors.bgCard} border={`1px solid ${colors.border}`} _hover={{ bg: colors.bgCardHover, borderColor: colors.accent }} aria-label="GitHub" transition="all 0.3s ease">
+          <Link as={IconButton} href="https://github.com/leandrohernandez" borderRadius={'full'} color={colors.text} bg={colors.bgCard} border={`1px solid ${colors.border}`} _hover={{ bg: colors.bgCardHover, borderColor: colors.accent }} aria-label="GitHub" transition="all 0.3s ease">
             <FiGithub />
-          </IconButton>
-          <IconButton borderRadius={'full'} color={'#ffffff'} bg={'rgb(14, 118, 168, 1)'} _hover={{ bg: 'rgb(14, 118, 168, 0.8)' }} aria-label="LinkedIn">
+          </Link>
+          <Link as={IconButton} href="https://www.linkedin.com/in/lnunez1457" borderRadius={'full'} color={'#ffffff'} bg={'rgb(14, 118, 168, 1)'} _hover={{ bg: 'rgb(14, 118, 168, 0.8)' }} aria-label="LinkedIn">
             <FaLinkedin />
-          </IconButton>
+          </Link>
         </HStack>
         </VStack>
       </HStack>
