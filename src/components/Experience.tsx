@@ -15,33 +15,36 @@ const experiences: Experience[] = [
     id: 1,
     title: 'Full Stack Developer',
     company: 'Synchronit',
-    period: '2022 - Present',
+    period: '10/2022 - Present',
     description: [
       'Work across backend and frontend using Node.js, TypeScript, React and PostgreSQL',
-      'Participated in legacy backend migration from Python to Common Lisp, simplifying business logic',
-      'Design and maintain FQL, an internal DSL on top of SQL to centralize query logic',
-      'Contributed to CI workflows using GitHub Actions and assisted with AWS deployments'
+      'Participated in the migration of a legacy backend from Python to Common Lisp, helping simplify business logic and data handling',
+      'Design and maintain FQL, an internal DSL on top of SQL used to centralize query logic',
+      'Contributed to an internal assistant that translates natural language into FQL queries and executes them against the database',
+      'Helped build internal tools including dashboards, lightweight documentation tools, JavaScript utilities and a browser-based CLI',
+      'Contribute to CI workflows using GitHub Actions and assist with basic AWS deployments'
     ]
   },
   {
     id: 2,
-    title: 'Backend Developer',
+    title: 'Full Stack Developer',
     company: 'CLASS Limitless',
-    period: '2021-11 - 2022-02',
+    period: '12/2021 - 01/2022',
     description: [
       'Built REST APIs using Node.js and PostgreSQL',
       'Assisted in database design and query optimization',
       'Worked with Docker-based development environments',
-      'Implemented small internal tools to improve data access for the team'
+      'Implemented small internal tools to improve data access for the team',
+      'Collaborated with frontend developers to integrate APIs with React applications'
     ]
   },
   {
     id: 3,
-    title: 'Frontend Developer Intern',
-    company: 'Innovasoft Solutions',
-    period: '2021-05 - 2021-06',
+    title: 'Full Stack Developer Intern',
+    company: 'Grupo de Electronica para el Turismo, GET',
+    period: '01/2021 - 07/2021',
     description: [
-      'Developed UI components using React and TypeScript',
+      'Developed UI components using React',
       'Integrated frontend features with backend APIs',
       'Improved internal dashboards for data visualization'
     ]
