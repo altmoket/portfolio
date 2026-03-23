@@ -32,7 +32,7 @@ export function Hero() {
   }
 
   const handleDownloadCV = () => {
-    window.location.href = './Leandro_Hernandez_CV.pdf'
+    window.open('./Leandro_Hernandez_CV.pdf', '_blank')
   }
 
   const handleGitHub = () => {
