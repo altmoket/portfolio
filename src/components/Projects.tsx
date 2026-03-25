@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import { Box, Heading, SimpleGrid, Text, VStack, HStack, useDisclosure } from '@chakra-ui/react'
+import { Box, Heading, SimpleGrid, VStack, Center, useDisclosure } from '@chakra-ui/react'
 import Section from './Section'
 import { useTheme, getThemeColors } from '../context/ThemeContext'
 import type { Project } from '../types/proyect'
-import { featuredProject, projects } from '../store/proyects'
+import { projects } from '../store/proyects'
 import { ProjectModal } from './ProjectModal'
 import { ViewAllProjectsCard } from './ViewAllProjectsCard'
-import CustomBadge from './CustomBadge'
 
 export function Projects() {
   const { theme } = useTheme()
@@ -26,88 +25,55 @@ export function Projects() {
 
   return (
     <Section title="Projects">
-
-      {/* FEATURED PROJECT */}
-      <Box
-        bg={colors.bgCard}
-        border={`1px solid ${colors.border}`}
-        borderRadius="12px"
-        p={8}
-        mb={10}
-        _hover={{
-          borderColor: colors.accent,
-          bg: colors.bgCardHover,
-          cursor: 'pointer'
-        }}
-        transition="all 0.3s ease"
-        onClick={() => handleProjectClick(featuredProject)}
-      >
-        <VStack align="start" gap={4}>
-          <Heading size="lg" color={colors.text}>{featuredProject.title}</Heading>
-
-          <Text color={colors.textTertiary} maxW="lg">
-            {featuredProject.description}
-          </Text>
-
-          <HStack>
-            {featuredProject.tags.map(tag => (
-              <CustomBadge key={tag} tag={tag} />
-            ))}
-          </HStack>
-
-          <HStack gap={6} pt={2}>
-            <a href={featuredProject.github} target="_blank" rel="noopener noreferrer" style={{ color: colors.accent }}>
-              Code →
-            </a>
-          </HStack>
-        </VStack>
-      </Box>
-
-      {/* OTHER PROJECTS */}
-      <SimpleGrid columns={{ base: 1, md: 2 }} gap={6}>
-        {projects.slice(1, 4).map((project) => (
+      {/* PROJECTS GRID - First 3 projects + View All Card */}
+      <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} gap={6}>
+        {projects.slice(0, 3).map((project) => (
           <Box
             key={project.id}
             bg={colors.bgCard}
             border={`1px solid ${colors.border}`}
-            borderRadius="10px"
-            p={5}
+            borderRadius="12px"
+            overflow="hidden"
             _hover={{
               borderColor: colors.accent,
-              bg: colors.bgCardHover,
-              transform: 'translateY(-2px)',
-              cursor: 'pointer'
+              transform: 'translateY(-4px)',
+              boxShadow: `0 8px 16px rgba(0,0,0,0.1)`
             }}
             transition="all 0.3s ease"
+            cursor="pointer"
             onClick={() => handleProjectClick(project)}
           >
-            <VStack align="start" gap={3}>
-              <Heading size="sm" color={colors.text}>{project.title}</Heading>
+            {/* Project Image */}
+            {project.images?.[0] && (
+              <Center
+                h="220px"
+                bg={colors.bgCardHover}
+                overflow="hidden"
+                position="relative"
+              >
+                <img
+                  src={project.images[0]}
+                  alt={project.title}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover'
+                  }}
+                />
+              </Center>
+            )}
 
-              <Text fontSize="sm" color={colors.textTertiary}>
-                {project.description}
-              </Text>
-
-              <HStack wrap="wrap">
-                {project.tags.map(tag => (
-                  <CustomBadge key={tag} tag={tag} />
-                  // <Badge key={tag} fontSize="xs" bg={colors.bgCardHover} color={colors.accent} border={`1px solid ${colors.border}`}>
-                  //   {tag}
-                  // </Badge>
-                ))}
-              </HStack>
-
-              <HStack gap={4} pt={2}>
-                <a href={project.github} target="_blank" rel="noopener noreferrer" style={{ fontSize: '14px', color: colors.accent }} onClick={(e) => e.stopPropagation()}>
-                  Code
-                </a>
-              </HStack>
+            {/* Project Title */}
+            <VStack align="start" gap={0} p={5}>
+              <Heading size="sm" color={colors.text}>
+                {project.title}
+              </Heading>
             </VStack>
           </Box>
         ))}
 
         {/* View All Projects Card */}
-        <ViewAllProjectsCard colors={colors} />
+        <ViewAllProjectsCard colors={colors} projects={projects} />
       </SimpleGrid>
 
       {/* Project Details Modal */}

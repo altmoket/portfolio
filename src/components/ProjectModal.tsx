@@ -41,35 +41,27 @@ export function ProjectModal({ project, open, onClose, colors }: ProjectModalPro
                     Preview
                   </Text>
                   <SimpleGrid columns={{ base: 2, md: 3 }} gap={3}>
-                    {project.images.map((image, idx) => {
-                      const isEmoji = image.length <= 2 && !image.includes('/') && !image.includes('.');
-                      return (
-                        <Center
-                          key={idx}
-                          w="full"
-                          h="120px"
-                          bg={colors.bgCardHover}
-                          borderRadius="8px"
-                          border={`1px solid ${colors.border}`}
-                          fontSize="48px"
-                          overflow="hidden"
-                        >
-                          {isEmoji ? (
-                            image
-                          ) : (
-                            <img
-                              src={image}
-                              alt={`${project.title} ${idx + 1}`}
-                              style={{
-                                width: '100%',
-                                height: '100%',
-                                objectFit: 'cover'
-                              }}
-                            />
-                          )}
-                        </Center>
-                      );
-                    })}
+                    {project.images.map((image, idx) => (
+                      <Center
+                        key={idx}
+                        w="full"
+                        h="120px"
+                        bg={colors.bgCardHover}
+                        borderRadius="8px"
+                        border={`1px solid ${colors.border}`}
+                        overflow="hidden"
+                      >
+                        <img
+                          src={image}
+                          alt={`${project.title} ${idx + 1}`}
+                          style={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover'
+                          }}
+                        />
+                      </Center>
+                    ))}
                   </SimpleGrid>
                 </Box>
               )}

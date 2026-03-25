@@ -62,27 +62,19 @@ export function AllProjects() {
             >
               <VStack align="start" gap={3} h="full">
                 {/* Project Image/Icon */}
-                {project.images && project.images.length > 0 && (() => {
-                  const firstImage = project.images[0];
-                  const isEmoji = firstImage.length <= 2 && !firstImage.includes('/') && !firstImage.includes('.');
-                  return (
-                    <Center w="full" h="80px" bg={colors.bgCardHover} borderRadius="8px" fontSize="40px" mb={2} overflow="hidden">
-                      {isEmoji ? (
-                        firstImage
-                      ) : (
-                        <img
-                          src={firstImage}
-                          alt={project.title}
-                          style={{
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'cover'
-                          }}
-                        />
-                      )}
-                    </Center>
-                  );
-                })()}
+                {project.images && project.images.length > 0 && (
+                  <Center w="full" h="80px" bg={colors.bgCardHover} borderRadius="8px" mb={2} overflow="hidden">
+                    <img
+                      src={project.images[0]}
+                      alt={project.title}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover'
+                      }}
+                    />
+                  </Center>
+                )}
 
                 <Heading size="sm" color={colors.text}>
                   {project.title}
