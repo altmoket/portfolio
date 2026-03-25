@@ -2,27 +2,6 @@ import type { Project } from "../types/proyect";
 
 export const projects: Project[] = [
   {
-    id: 0,
-    title: 'Price Comparator',
-    description:
-      'Tool to compare supermarket prices and optimize shopping decisions based on real data.',
-    images: ['🏪'],
-    tags: ['React', 'Node.js', 'PostgreSQL'],
-    live: 'https://example.com',
-    github: 'https://github.com',
-    featured: true
-  },
-  {
-    id: 1,
-    title: 'E-Commerce Platform',
-    description: 'Full-stack e-commerce solution with payment integration, inventory management, and analytics dashboard.',
-    images: ['🛍️'],
-    tags: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
-    live: 'https://example.com',
-    github: 'https://github.com',
-    featured: true
-  },
-  {
     id: 2,
     title: 'Solving Hidatos',
     description: 'Hidato is a logic puzzle game where players fill a grid with consecutive numbers that connect in various directions. Developed in Haskell, this project emphasizes critical thinking and problem-solving skills.',
@@ -47,23 +26,6 @@ export const projects: Project[] = [
     tags: ['Python', 'pytest', 'Problem Solving', 'DSL', 'turtle'],
     github: 'https://github.com/jordipynb/draw_dsl'
   },
-  {
-    id: 5,
-    title: 'Social Network',
-    description: 'Feature-rich social network platform with messaging, notifications, and community feeds.',
-    images: ['👥'],
-    tags: ['React Native', 'Node.js', 'WebSocket', 'GraphQL'],
-    live: 'https://example.com',
-    github: 'https://github.com'
-  },
-  {
-    id: 6,
-    title: 'Video Streaming Service',
-    description: 'Streaming platform with adaptive bitrate, live streaming, and content recommendation system.',
-    images: ['▶️'],
-    tags: ['React', 'AWS', 'FFmpeg', 'Node.js'],
-    github: 'https://github.com'
-  }
 ]
 
 const featuredProject: Project = projects.find(p => p.featured) || projects[0]
