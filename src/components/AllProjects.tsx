@@ -5,6 +5,7 @@ import { useTheme, getThemeColors } from '../context/ThemeContext'
 import type { Project } from '../types/proyect'
 import { projects } from '../store/proyects'
 import { ProjectModal } from './ProjectModal'
+import CustomBadge from './CustomBadge'
 
 export function AllProjects() {
   const { theme } = useTheme()
@@ -93,9 +94,7 @@ export function AllProjects() {
 
                 <HStack wrap="wrap" gap={1}>
                   {project.tags.slice(0, 3).map(tag => (
-                    <Badge key={tag} fontSize="xs" bg={colors.bgCardHover} color={colors.accent} border={`1px solid ${colors.border}`}>
-                      {tag}
-                    </Badge>
+                    <CustomBadge key={tag} tag={tag} />
                   ))}
                   {project.tags.length > 3 && (
                     <Badge fontSize="xs" bg={colors.bgCardHover} color={colors.accent} border={`1px solid ${colors.border}`}>

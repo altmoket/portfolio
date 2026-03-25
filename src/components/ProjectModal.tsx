@@ -13,8 +13,15 @@ export function ProjectModal({ project, open, onClose, colors }: ProjectModalPro
   if (!project) return null
 
   return (
-    <Modal isOpen={open} onClose={onClose} size="xl">
-      <ModalContent bg={colors.bgCard} border={`1px solid ${colors.border}`}>
+    <Modal isOpen={open} onClose={onClose} size="xl" isCentered>
+      <ModalContent
+        bg={colors.bgCard}
+        backdropFilter="blur(20px)"
+        border="1px solid"
+        borderColor={`${colors.border}`}
+        boxShadow="0 20px 60px rgba(0,0,0,0.3)"
+        transition="all 0.2s ease"
+      >
         <ModalHeader color={colors.text}>{project.title}</ModalHeader>
         <ModalCloseButton color={colors.textTertiary} />
         <ModalBody>

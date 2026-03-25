@@ -1,11 +1,12 @@
 import { useState } from 'react'
-import { Box, Heading, SimpleGrid, Text, Badge, VStack, HStack, useDisclosure } from '@chakra-ui/react'
+import { Box, Heading, SimpleGrid, Text, VStack, HStack, useDisclosure } from '@chakra-ui/react'
 import Section from './Section'
 import { useTheme, getThemeColors } from '../context/ThemeContext'
 import type { Project } from '../types/proyect'
 import { featuredProject, projects } from '../store/proyects'
 import { ProjectModal } from './ProjectModal'
 import { ViewAllProjectsCard } from './ViewAllProjectsCard'
+import CustomBadge from './CustomBadge'
 
 export function Projects() {
   const { theme } = useTheme()
@@ -25,7 +26,7 @@ export function Projects() {
 
   return (
     <Section title="Projects">
-      
+
       {/* FEATURED PROJECT */}
       <Box
         bg={colors.bgCard}
@@ -50,9 +51,7 @@ export function Projects() {
 
           <HStack>
             {featuredProject.tags.map(tag => (
-              <Badge key={tag} bg={colors.bgCardHover} color={colors.accent} border={`1px solid ${colors.border}`}>
-                {tag}
-              </Badge>
+              <CustomBadge key={tag} tag={tag} />
             ))}
           </HStack>
 
@@ -96,9 +95,10 @@ export function Projects() {
 
               <HStack wrap="wrap">
                 {project.tags.map(tag => (
-                  <Badge key={tag} fontSize="xs" bg={colors.bgCardHover} color={colors.accent} border={`1px solid ${colors.border}`}>
-                    {tag}
-                  </Badge>
+                  <CustomBadge key={tag} tag={tag} />
+                  // <Badge key={tag} fontSize="xs" bg={colors.bgCardHover} color={colors.accent} border={`1px solid ${colors.border}`}>
+                  //   {tag}
+                  // </Badge>
                 ))}
               </HStack>
 
@@ -115,7 +115,7 @@ export function Projects() {
             </VStack>
           </Box>
         ))}
-        
+
         {/* View All Projects Card */}
         <ViewAllProjectsCard colors={colors} />
       </SimpleGrid>
