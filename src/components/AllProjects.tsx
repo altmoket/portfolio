@@ -97,7 +97,7 @@ export function AllProjects() {
                     <CustomBadge key={tag} tag={tag} />
                   ))}
                   {project.tags.length > 3 && (
-                    <Badge fontSize="xs" bg={colors.bgCardHover} color={colors.accent} border={`1px solid ${colors.border}`}>
+                    <Badge fontSize="xs" bg={colors.bgCardHover} color={colors.accent} border={`1px solid ${colors.border}`} px="2" py="1" borderRadius="6px">
                       +{project.tags.length - 3}
                     </Badge>
                   )}

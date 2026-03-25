@@ -28,8 +28,8 @@ export function ViewAllProjectsCard({ colors }: ViewAllProjectsCardProps) {
         <Text fontSize="sm" color={colors.textTertiary} textAlign="center">
           Explore all my projects and experiments
         </Text>
-        <RouterLink to="/projects">
-          <Button colorScheme="blue" variant="outline" size="sm">
+        <RouterLink to="/projects" style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+          <Button colorScheme="blue" variant="outline" size="sm" _hover={{ bg: colors.bgCardHover }}>
             View All →
           </Button>
         </RouterLink>

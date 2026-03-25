@@ -9,11 +9,12 @@ const CustomBadge = ({ tag }: { tag: string; }) => {
     <Badge
       px={2}
       py={1}
-      borderRadius="full"
-      bg={`${colors.accent}15`}
+      borderRadius="6px"
+      bg={colors.bgCardHover}
       color={colors.accent}
+      border={`1px solid ${colors.border}`}
       fontWeight="500"
-      fontSize="0.7rem"
+      fontSize="0.75rem"
     >
       {tag}
     </Badge>
