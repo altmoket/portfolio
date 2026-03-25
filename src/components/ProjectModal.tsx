@@ -57,7 +57,7 @@ export function ProjectModal({ project, open, onClose, colors }: ProjectModalPro
                           style={{
                             width: '100%',
                             height: '100%',
-                            objectFit: 'cover'
+                            objectFit: 'contain'
                           }}
                         />
                       </Center>
