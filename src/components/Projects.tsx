@@ -1,86 +1,140 @@
-import { Box, Heading, SimpleGrid, Text, Badge, Link, VStack, HStack } from '@chakra-ui/react'
+import { useState } from 'react'
+import { Box, Heading, SimpleGrid, Text, Badge, VStack, HStack, Button, useDisclosure, Center } from '@chakra-ui/react'
+import { Modal, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter } from '@chakra-ui/modal'
+import { Link as RouterLink } from 'react-router-dom'
 import Section from './Section'
 import { useTheme, getThemeColors } from '../context/ThemeContext'
+import type { Project } from '../types/proyect'
+import { featuredProject, projects } from '../store/proyects'
 
-interface Project {
-  id: number
-  title: string
-  description: string
-  image: string
-  tags: string[]
-  link: string
-  github: string
+// Modal Component for Project Details
+function ProjectModal({ project, open, onClose, colors }: { project: Project | null; open: boolean; onClose: () => void; colors: any }) {
+  if (!project) return null
+
+  return (
+    <Modal isOpen={open} onClose={onClose} size="xl">
+
+      <ModalContent bg={colors.bgCard} border={`1px solid ${colors.border}`}>
+        <ModalHeader color={colors.text}>{project.title}</ModalHeader>
+        <ModalCloseButton color={colors.textTertiary} />
+        <ModalBody>
+          <VStack gap={6} align="start">
+            {/* Images Gallery */}
+            {project.images && project.images.length > 0 && (
+              <Box w="full">
+                <Text fontSize="sm" fontWeight="600" color={colors.textTertiary} mb={3}>
+                  Preview
+                </Text>
+                <SimpleGrid columns={{ base: 2, md: 3 }} gap={3}>
+                  {project.images.map((image, idx) => (
+                    <Center
+                      key={idx}
+                      w="full"
+                      h="120px"
+                      bg={colors.bgCardHover}
+                      borderRadius="8px"
+                      border={`1px solid ${colors.border}`}
+                      fontSize="48px"
+                    >
+                      {image}
+                    </Center>
+                  ))}
+                </SimpleGrid>
+              </Box>
+            )}
+
+            {/* Description */}
+            <Box w="full">
+              <Text fontSize="sm" fontWeight="600" color={colors.textTertiary} mb={2}>
+                Description
+              </Text>
+              <Text color={colors.text}>{project.description}</Text>
+            </Box>
+
+            {/* Tags */}
+            <Box w="full">
+              <Text fontSize="sm" fontWeight="600" color={colors.textTertiary} mb={2}>
+                Technologies
+              </Text>
+              <HStack wrap="wrap" gap={2}>
+                {project.tags.map(tag => (
+                  <Badge key={tag} bg={colors.bgCardHover} color={colors.accent} border={`1px solid ${colors.border}`}>
+                    {tag}
+                  </Badge>
+                ))}
+              </HStack>
+            </Box>
+          </VStack>
+        </ModalBody>
+
+        <ModalFooter gap={3}>
+          {project.live && (
+            <a href={project.live} target="_blank" rel="noopener noreferrer">
+              <Button colorScheme="blue" variant="outline" size="sm">
+                Live ↗
+              </Button>
+            </a>
+          )}
+          <a href={project.github} target="_blank" rel="noopener noreferrer">
+            <Button colorScheme="blue" size="sm">
+              Code →
+            </Button>
+          </a>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
+  )
 }
 
-const projects: Project[] = [
-  {
-    id: 1,
-    title: 'E-Commerce Platform',
-    description: 'Full-stack e-commerce solution with payment integration, inventory management, and analytics dashboard.',
-    image: '🛍️',
-    tags: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
-    link: '#',
-    github: '#'
-  },
-  {
-    id: 2,
-    title: 'Task Management App',
-    description: 'Collaborative task management tool with real-time updates, team collaboration, and advanced filtering.',
-    image: '✅',
-    tags: ['TypeScript', 'React', 'Firebase', 'Tailwind'],
-    link: '#',
-    github: '#'
-  },
-  {
-    id: 3,
-    title: 'AI Content Generator',
-    description: 'AI-powered content generation tool integrated with GPT API for creating marketing copy, blog posts, and more.',
-    image: '🤖',
-    tags: ['Next.js', 'OpenAI API', 'TypeScript', 'Vercel'],
-    link: '#',
-    github: '#'
-  },
-  {
-    id: 4,
-    title: 'Analytics Dashboard',
-    description: 'Real-time analytics dashboard with data visualization, custom reports, and user behavior tracking.',
-    image: '📊',
-    tags: ['React', 'D3.js', 'Node.js', 'MongoDB'],
-    link: '#',
-    github: '#'
-  },
-  {
-    id: 5,
-    title: 'Social Network',
-    description: 'Feature-rich social network platform with messaging, notifications, and community feeds.',
-    image: '👥',
-    tags: ['React Native', 'Node.js', 'WebSocket', 'GraphQL'],
-    link: '#',
-    github: '#'
-  },
-  {
-    id: 6,
-    title: 'Video Streaming Service',
-    description: 'Streaming platform with adaptive bitrate, live streaming, and content recommendation system.',
-    image: '▶️',
-    tags: ['React', 'AWS', 'FFmpeg', 'Node.js'],
-    link: '#',
-    github: '#'
-  }
-]
-
-const featured = {
-  title: 'Price Comparator',
-  description:
-    'Tool to compare supermarket prices and optimize shopping decisions based on real data.',
-  tags: ['React', 'Node.js', 'PostgreSQL'],
-  link: '#',
-  github: '#'
+// Component to Show More Projects Link
+function ViewAllProjectsCard({ colors }: { colors: any }) {
+  return (
+    <Box
+      bg={colors.bgCard}
+      border={`1px solid ${colors.border}`}
+      borderRadius="10px"
+      p={5}
+      _hover={{
+        borderColor: colors.accent,
+        bg: colors.bgCardHover,
+        transform: 'translateY(-2px)'
+      }}
+      transition="all 0.3s ease"
+      cursor="pointer"
+    >
+      <VStack align="center" justify="center" gap={4} py={8}>
+        <Text fontSize="2xl">✨</Text>
+        <Heading size="sm" color={colors.text} textAlign="center">
+          More Projects
+        </Heading>
+        <Text fontSize="sm" color={colors.textTertiary} textAlign="center">
+          Explore all my projects and experiments
+        </Text>
+        <RouterLink to="/projects">
+          <Button colorScheme="blue" variant="outline" size="sm">
+            View All →
+          </Button>
+        </RouterLink>
+      </VStack>
+    </Box>
+  )
 }
 
 export function Projects() {
   const { theme } = useTheme()
   const colors = getThemeColors(theme)
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+  const { open, onOpen, onClose } = useDisclosure()
+
+  const handleProjectClick = (project: Project) => {
+    setSelectedProject(project)
+    onOpen()
+  }
+
+  const handleCloseModal = () => {
+    onClose()
+    setSelectedProject(null)
+  }
 
   return (
     <Section title="Projects">
@@ -94,19 +148,21 @@ export function Projects() {
         mb={10}
         _hover={{
           borderColor: colors.accent,
-          bg: colors.bgCardHover
+          bg: colors.bgCardHover,
+          cursor: 'pointer'
         }}
         transition="all 0.3s ease"
+        onClick={() => handleProjectClick(featuredProject)}
       >
         <VStack align="start" gap={4}>
-          <Heading size="lg" color={colors.text}>{featured.title}</Heading>
+          <Heading size="lg" color={colors.text}>{featuredProject.title}</Heading>
 
           <Text color={colors.textTertiary} maxW="lg">
-            {featured.description}
+            {featuredProject.description}
           </Text>
 
           <HStack>
-            {featured.tags.map(tag => (
+            {featuredProject.tags.map(tag => (
               <Badge key={tag} bg={colors.bgCardHover} color={colors.accent} border={`1px solid ${colors.border}`}>
                 {tag}
               </Badge>
@@ -114,19 +170,21 @@ export function Projects() {
           </HStack>
 
           <HStack gap={6} pt={2}>
-            <Link href={featured.link} color={colors.accent} _hover={{ color: colors.accentLight }}>
-              Live ↗
-            </Link>
-            <Link href={featured.github} color={colors.accent} _hover={{ color: colors.accentLight }}>
+            {featuredProject.live && (
+              <a href={featuredProject.live} target="_blank" rel="noopener noreferrer" style={{ color: colors.accent }}>
+                Live ↗
+              </a>
+            )}
+            <a href={featuredProject.github} target="_blank" rel="noopener noreferrer" style={{ color: colors.accent }}>
               Code →
-            </Link>
+            </a>
           </HStack>
         </VStack>
       </Box>
 
       {/* OTHER PROJECTS */}
       <SimpleGrid columns={{ base: 1, md: 2 }} gap={6}>
-        {projects.slice(1).map((project) => (
+        {projects.slice(0, 4).map((project) => (
           <Box
             key={project.id}
             bg={colors.bgCard}
@@ -136,9 +194,11 @@ export function Projects() {
             _hover={{
               borderColor: colors.accent,
               bg: colors.bgCardHover,
-              transform: 'translateY(-2px)'
+              transform: 'translateY(-2px)',
+              cursor: 'pointer'
             }}
             transition="all 0.3s ease"
+            onClick={() => handleProjectClick(project)}
           >
             <VStack align="start" gap={3}>
               <Heading size="sm" color={colors.text}>{project.title}</Heading>
@@ -156,17 +216,25 @@ export function Projects() {
               </HStack>
 
               <HStack gap={4} pt={2}>
-                <Link href={project.link} fontSize="sm" color={colors.accent} _hover={{ color: colors.accentLight }}>
-                  Live
-                </Link>
-                <Link href={project.github} fontSize="sm" color={colors.accent} _hover={{ color: colors.accentLight }}>
+                {project.live && (
+                  <a href={project.live} target="_blank" rel="noopener noreferrer" style={{ fontSize: '14px', color: colors.accent }} onClick={(e) => e.stopPropagation()}>
+                    Live
+                  </a>
+                )}
+                <a href={project.github} target="_blank" rel="noopener noreferrer" style={{ fontSize: '14px', color: colors.accent }} onClick={(e) => e.stopPropagation()}>
                   Code
-                </Link>
+                </a>
               </HStack>
             </VStack>
           </Box>
         ))}
+        
+        {/* View All Projects Card */}
+        <ViewAllProjectsCard colors={colors} />
       </SimpleGrid>
+
+      {/* Project Details Modal */}
+      <ProjectModal project={selectedProject} open={open} onClose={handleCloseModal} colors={colors} />
     </Section>
   )
 }
