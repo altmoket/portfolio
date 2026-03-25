@@ -184,7 +184,7 @@ export function Projects() {
 
       {/* OTHER PROJECTS */}
       <SimpleGrid columns={{ base: 1, md: 2 }} gap={6}>
-        {projects.slice(0, 4).map((project) => (
+        {projects.slice(1, 4).map((project) => (
           <Box
             key={project.id}
             bg={colors.bgCard}
