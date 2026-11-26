@@ -4,6 +4,7 @@ import { About } from '../components/About'
 import { Projects } from '../components/Projects'
 import { Skills } from '../components/Skills'
 import { Experience } from '../components/Experience'
+import { Education } from '../components/Education'
 import { Box, Container, VStack } from '@chakra-ui/react'
 import { getThemeColors, useTheme } from '../context/ThemeContext'
 import { ThemeSwitcher } from '../components/ThemeSwitcher'
@@ -32,6 +33,7 @@ export function HomePage() {
           <Skills />
           <Projects />
           <Experience />
+          <Education />
         </VStack>
       </Container>
     </Box>
