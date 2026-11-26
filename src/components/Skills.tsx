@@ -4,13 +4,16 @@ import { useTheme, getThemeColors } from '../context/ThemeContext'
 
 const skills = [
   'TypeScript',
+  'JavaScript',
   'Node.js',
   'React',
   'PostgreSQL',
-  'Docker',
-  'GitHub Actions',
+  'Common Lisp',
   'Python',
-  'Common Lisp'
+  'GitHub Actions',
+  'Docker',
+  'AWS',
+  'Infrastructure as Code'
 ]
 
 export function Skills() {

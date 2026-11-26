@@ -17,11 +17,13 @@ export function About() {
         Most of my time goes into making business logic behave and preventing data workflows
         from turning into something nobody understands a week later.
 
-        I mainly work with TypeScript, Node.js, React and PostgreSQL.
-        I like building systems that are easy to reason about, even if getting there usually involves
-        questioning a few design decisions along the way.
+        I mainly work with TypeScript, Node.js, React, PostgreSQL and Common Lisp.
+        At Synchronit I design and build FQL, an internal DSL on top of SQL, and the product
+        ecosystem around it: a REST API engine, a multi-tenant PostgreSQL architecture,
+        interactive documentation, a conversational AI assistant and browser-based tooling.
 
-        Day to day, I build tools, improve workflows, and occasionally fix things that somehow
+        I also own security and CI/CD for that ecosystem, which mostly means GitHub Actions,
+        AWS and Infrastructure as Code, and occasionally fixing things that somehow
         made it to production without anyone noticing. It happens.
 
         Based in São Paulo, trying to keep software a little more predictable than it usually is.

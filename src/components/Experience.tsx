@@ -7,6 +7,7 @@ interface Experience {
   title: string
   company: string
   period: string
+  location: string
   description: string[]
 }
 
@@ -16,24 +17,16 @@ const experiences: Experience[] = [
     title: 'Full Stack Developer',
     company: 'Synchronit',
     period: '10/2022 - Present',
+    location: 'Switzerland (remote)',
     description: [
-      'Work across backend and frontend using Node.js, TypeScript, React and PostgreSQL',
-      'Participated in the migration of a legacy backend from Python to Common Lisp, helping simplify business logic and data handling',
-      'Design and maintain FQL, an internal DSL on top of SQL used to centralize query logic',
-      'Contributed to an internal assistant that translates natural language into FQL queries and executes them against the database',
-      'Helped build internal tools including dashboards, lightweight documentation tools, JavaScript utilities and a browser-based CLI',
-      'Contribute to CI workflows using GitHub Actions and assist with basic AWS deployments'
-    ]
-  },
-  {
-    id: 2,
-    title: 'Full Stack Developer Intern',
-    company: 'Grupo de Electronica para el Turismo, GET',
-    period: '01/2021 - 07/2021',
-    description: [
-      'Developed UI components using React',
-      'Integrated frontend features with backend APIs',
-      'Improved internal dashboards for data visualization'
+      'Designed, built and maintained FQL, an internal DSL on top of SQL adopted by a 5-person engineering team, simplifying query writing and ensuring data consistency across the internal ecosystem.',
+      'Designed and maintained the REST API engine and the multi-tenant PostgreSQL data model underpinning FQL, enabling multiple environments/clients to operate securely on shared infrastructure.',
+      'Led the design and development of a full product suite around FQL — a landing page, an interactive wiki with live, runnable code examples, a no-code presentation server, a conversational AI assistant that builds and executes FQL queries in real time, and a browser-based CLI — expanding access to the DSL for both technical and non-technical users.',
+      'Owned security across the FQL ecosystem, covering authentication, authorization and data isolation between tenants.',
+      'Built a task-management product on top of the FQL data model, validating the DSL as a foundation for products beyond its original use case.',
+      'Increased ecosystem deployment velocity by migrating infrastructure from a manual, AWS-only approach to automated GitHub Actions workflows backed by Infrastructure as Code.',
+      'Reduced bugs and accelerated feature development by contributing to the migration of the legacy backend from Python to Common Lisp alongside a 5-person team.',
+      "Maintained and improved Synchronit's corporate website."
     ]
   }
 ]
@@ -104,13 +97,14 @@ export function Experience() {
                     {exp.company}
                   </Text>
                 </VStack>
-                <Text
-                  color={colors.textSecondary}
-                  fontSize="sm"
-                  flexShrink={0}
-                >
-                  {exp.period}
-                </Text>
+                <VStack gap={1} align={{ base: 'start', sm: 'end' }} flexShrink={0}>
+                  <Text color={colors.textSecondary} fontSize="sm">
+                    {exp.period}
+                  </Text>
+                  <Text color={colors.textTertiary} fontSize="sm">
+                    {exp.location}
+                  </Text>
+                </VStack>
               </Flex>
 
               {/* Description */}
