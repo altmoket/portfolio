@@ -19,7 +19,7 @@ export function Hero() {
   const { theme } = useTheme()
   const colors = getThemeColors(theme)
   const [copied, setCopied] = useState(false)
-  const email = 'leandro.nunez1457@email.com'
+  const email = 'leandro.nunez1457@gmail.com'
 
   const handleCopyEmail = async () => {
     try {
@@ -86,7 +86,7 @@ export function Hero() {
           <HStack gap={{ base: 2, md: 4 }} pt={2} wrap="wrap" justify={{ base: "center", md: "flex-start" }} w="full">
           <Button onClick={handleCopyEmail} color="#ffffff" bg={'rgb(70, 167, 89, 1)'} _hover={{ bg: 'rgb(70, 167, 89, 0.8)' }} borderRadius={'full'} p={2} gap={2}>
             <FiMail />
-            {copied ? 'Copied!' : 'leandro.nunez1457@email.com'}
+            {copied ? 'Copied!' : 'leandro.nunez1457@gmail.com'}
           </Button>
           <IconButton onClick={handleDownloadCV} borderRadius={'full'} color={colors.text} bg={colors.bgCard} border={`1px solid ${colors.border}`} _hover={{ bg: colors.bgCardHover, borderColor: colors.accent }} aria-label="Download CV" transition="all 0.3s ease">
             <FaFileLines />
